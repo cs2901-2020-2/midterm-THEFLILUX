@@ -9,7 +9,6 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
 import javafx.stage.Stage;
-import org.jfree.chart.axis.NumberAxis;
 
 public class PieChartMonitor{
     Subject subject;
