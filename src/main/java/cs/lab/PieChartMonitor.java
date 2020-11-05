@@ -1,8 +1,12 @@
 package cs.lab;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
 import javafx.stage.Stage;
 import org.jfree.chart.axis.NumberAxis;
@@ -11,24 +15,22 @@ public class PieChartMonitor{
     Subject subject;
 
     public void start(Stage stage) {
-        final CategoryAxis xAxis = new CategoryAxis();
-        final NumberAxis yAxis = new NumberAxis();
-//        final BarChart<String,Number> bc =
-//                new BarChart<String,Number>(xAxis,yAxis);
-        //bc.setTitle("Country Summary");
-        xAxis.setLabel("Country");
-        yAxis.setLabel("Value");
+        Scene scene = new Scene(new Group());
+        stage.setTitle("Imported Fruits");
+        stage.setWidth(500);
+        stage.setHeight(500);
 
-        XYChart.Series series1 = new XYChart.Series();
-        series1.setName("2003");
-        series1.getData().add(new XYChart.Data("A", subject.getA()));
-        series1.getData().add(new XYChart.Data("B", subject.getB()));
-        series1.getData().add(new XYChart.Data("C", subject.getC()));
-        series1.getData().add(new XYChart.Data("D", subject.getD()));
+        ObservableList<PieChart.Data> pieChartData =
+                FXCollections.observableArrayList(
+                        new PieChart.Data("A", subject.getA()),
+                        new PieChart.Data("B", subject.getB()),
+                        new PieChart.Data("C", subject.getC()),
+                        new PieChart.Data("D", subject.getD()));
+        final PieChart chart = new PieChart(pieChartData);
+        chart.setTitle("Imported Fruits");
 
-//        Scene scene  = new Scene(bc,800,600);
-//        bc.getData().addAll(series1);
-        //stage.setScene(scene);
+        ((Group) scene.getRoot()).getChildren().add(chart);
+        stage.setScene(scene);
         stage.show();
     }
 
