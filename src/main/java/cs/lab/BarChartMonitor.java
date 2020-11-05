@@ -29,9 +29,9 @@ public class BarChartMonitor{
     public void start(Stage stage) {
         final CategoryAxis xAxis = new CategoryAxis();
         final NumberAxis yAxis = new NumberAxis();
-        final BarChart<String,Number> bc =
-                new BarChart<String,Number>(xAxis,yAxis);
-        bc.setTitle("Country Summary");
+//        final BarChart<String,Number> bc =
+//                new BarChart<String,Number>(xAxis,yAxis);
+        //bc.setTitle("Country Summary");
         xAxis.setLabel("Country");
         yAxis.setLabel("Value");
 
@@ -42,11 +42,10 @@ public class BarChartMonitor{
         series1.getData().add(new XYChart.Data("C", subject.getC()));
         series1.getData().add(new XYChart.Data("D", subject.getD()));
 
-        Scene scene  = new Scene(bc,800,600);
-        bc.getData().addAll(series1);
-        stage.setScene(scene);
+        //Scene scene  = new Scene(bc,800,600);
+        //bc.getData().addAll(series1);
+        //stage.setScene(scene);
         stage.show();
     }
-
 
 }

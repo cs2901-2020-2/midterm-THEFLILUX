@@ -1,30 +1,36 @@
 package cs.lab;
 
-public class PieChartMonitor implements Subject {
-    private int A;
-    private int B;
-    private int C;
-    private int D;
+import javafx.scene.Scene;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.XYChart;
+import javafx.stage.Stage;
+import org.jfree.chart.axis.NumberAxis;
 
-    public PieChartMonitor(){}
+public class PieChartMonitor{
+    Subject subject;
 
-    @Override
-    public void setA(int value) {
-        this.A = value;
+    public void start(Stage stage) {
+        final CategoryAxis xAxis = new CategoryAxis();
+        final NumberAxis yAxis = new NumberAxis();
+//        final BarChart<String,Number> bc =
+//                new BarChart<String,Number>(xAxis,yAxis);
+        //bc.setTitle("Country Summary");
+        xAxis.setLabel("Country");
+        yAxis.setLabel("Value");
+
+        XYChart.Series series1 = new XYChart.Series();
+        series1.setName("2003");
+        series1.getData().add(new XYChart.Data("A", subject.getA()));
+        series1.getData().add(new XYChart.Data("B", subject.getB()));
+        series1.getData().add(new XYChart.Data("C", subject.getC()));
+        series1.getData().add(new XYChart.Data("D", subject.getD()));
+
+//        Scene scene  = new Scene(bc,800,600);
+//        bc.getData().addAll(series1);
+        //stage.setScene(scene);
+        stage.show();
     }
 
-    @Override
-    public void setB(int value) {
-        this.B = value;
-    }
 
-    @Override
-    public void setC(int value) {
-        this.C = value;
-    }
-
-    @Override
-    public void setD(int value) {
-        this.D = value;
-    }
 }
